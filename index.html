@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <h1>Royal Dashboard</h1>
+      <input type="text" placeholder="Cari Kelas, Dokumen, Aktifitas dll..." aria-label="Pencarian" />
+    </header>
+
+    <!-- NAV (sidebar) -->
+    <nav class="app-nav">
+      <a href="#" class="nav-link active" data-target="home">Home</a>
+      <a href="#" class="nav-link" data-target="mahasiswa">Mahasiswa</a>
+      <a href="#" class="nav-link" data-target="kelas">Kelas</a>
+      <a href="#" class="nav-link" data-target="progres">Progres</a>
+      <a href="#" class="nav-link" data-target="aktifitas">Aktifitas</a>
+      <a href="#" class="nav-link" data-target="statistik">Statistik</a>
+      <a href="#" class="nav-link" data-target="dokumen">Dokumen</a>
+      <a href="#" class="nav-link link-settings" data-target="settings">Settings</a>
+      <a href="#" class="nav-link link-signout" data-target="signout">Sign Out</a>
+    </nav>
+
+    <!-- MAIN (banner selamat datang) -->
+    <main class="app-main">
+      <div class="welcome-text">
+        <h2>
+          Selamat Datang, <span id="nama-mahasiswa">Nama Mahasiswa</span><br />
+          <span id="nama-kelas">Kelas SI-3X</span>
+        </h2>
+        <p>Kamu memiliki Statistik, 3 Progres Kelas, 4 Aktifitas Selanjutnya dan 3 Lampiran Dokumen yang ada pada aplikasi ini.</p>
+      </div>
+      <div class="welcome-foto">
+        <img src="foto.jpeg" alt="Foto Mahasiswa" />
+      </div>
+    </main>
+
+    <!-- ASIDE + SECTION 1 + SECTION 2 -->
+    <div class="app-content">
+      <aside id="card-statistik" class="card">
+        <h3>Statistik Mahasiswa</h3>
+        <img src="Chart_Statistik.svg" alt="Grafik Statistik Mahasiswa" />
+      </aside>
+
+      <section id="card-progres" class="card">
+        <h3>Progres Kelas</h3>
+        <div class="item"><strong>Matakuliah A</strong><span>78 Pendaftar</span></div>
+        <div class="item"><strong>Matakuliah B</strong><span>30 Pendaftar</span></div>
+        <div class="item"><strong>Matakuliah C</strong><span>40 Pendaftar</span></div>
+        <div class="item"><strong>Matakuliah D</strong><span>10 Pendaftar</span></div>
+      </section>
+
+      <section id="card-aktifitas" class="card">
+        <h3>Aktifitas Selanjutnya</h3>
+        <div class="item"><strong>Perkuliahan Daring 1</strong><span>Senin, 15 Januari 2025</span></div>
+        <div class="item"><strong>Perkuliahan Daring 1</strong><span>Selasa, 15 Februari 2025</span></div>
+        <div class="item"><strong>Perkuliahan Daring 1</strong><span>Rabu, 15 Maret 2025</span></div>
+        <div class="item"><strong>Perkuliahan Daring 1</strong><span>Kamis, 15 April 2025</span></div>
+      </section>
+    </div>
+
+    <!-- FOOTER (lampiran) -->
+    <footer id="card-dokumen" class="card app-footer">
+      <h3>Lampiran Dokumen</h3>
+      <div class="item row"><p><strong>Lampiran Dokumen 1 -</strong> Matakuliah A | Tugas Bersama Perkuliahan Daring | <a href="#">Lihat Dokumen</a></p></div>
+      <div class="item row"><p><strong>Lampiran Dokumen 2 -</strong> Matakuliah B | Tugas Bersama Perkuliahan Daring | <a href="#">Lihat Dokumen</a></p></div>
+      <div class="item row"><p><strong>Lampiran Dokumen 3 -</strong> Matakuliah C | Tugas Bersama Perkuliahan Daring | <a href="#">Lihat Dokumen</a></p></div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

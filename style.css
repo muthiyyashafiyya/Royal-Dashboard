@@ -1,0 +1,161 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --biru: #e0368a;       /* pink utama */
+  --biru-tua: #a8145f;   /* pink tua (menu aktif, judul) */
+  --bg: #ffe8f3;
+  --card: #ffffff;
+  --item: #fff0f7;
+  --sorot: #ffb3d9;
+}
+
+body {
+  font-family: "Jost", "Segoe UI", Arial, sans-serif;
+  background: #fbd3e7;
+  padding: 24px;
+  color: #4a1230;
+}
+
+/* ===== GRID UTAMA ===== */
+.app {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    "header header"
+    "nav    main"
+    "nav    content"
+    "nav    footer";
+  gap: 14px;
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 22px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-header h1 { font-size: 22px; color: var(--biru-tua); }
+.app-header input {
+  width: 300px; padding: 8px 12px;
+  border: 1px solid #f0a8cc; border-radius: 8px;
+  font-size: 12px; background: #fff;
+}
+
+/* ===== NAV ===== */
+.app-nav {
+  grid-area: nav;
+  background: var(--biru);
+  border-radius: 8px;
+  padding: 34px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-link {
+  color: #fff; text-decoration: none;
+  font-weight: 600; font-size: 14px;
+  padding: 14px 0 14px 60px;
+  transition: background .25s, color .25s;
+}
+.nav-link:hover { background: rgba(255,255,255,.12); }
+.nav-link.active { background: var(--biru-tua); }
+.link-settings { color: #fff2a8; }
+.link-signout  { color: #ffd9b0; }
+
+/* ===== MAIN (banner) ===== */
+.app-main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: var(--biru);
+  color: #fff;
+  border-radius: 8px;
+  padding: 22px 28px;
+}
+.welcome-text h2 { font-size: 22px; line-height: 1.3; margin-bottom: 10px; }
+.welcome-text p  { font-size: 12px; max-width: 420px; opacity: .9; }
+.welcome-foto img {
+  width: 66px; height: 66px; border-radius: 50%;
+  border: 3px solid #fff; background: #6c63ff; object-fit: cover;
+}
+
+/* ===== ASIDE + SECTION1 + SECTION2 ===== */
+.app-content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: background .3s, box-shadow .3s;
+}
+.card h3 { font-size: 13px; font-weight: 500; margin-bottom: 12px; }
+/* grafik SVG biru dari Figma diubah jadi pink */
+#card-statistik img { width: 100%; display: block; filter: hue-rotate(115deg) saturate(1.2); }
+
+.item {
+  background: var(--item);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  display: flex; flex-direction: column; gap: 3px;
+  font-size: 11px;
+  transition: background .3s;
+}
+.item strong { font-size: 11px; }
+.item span { color: var(--biru); font-size: 11px; }
+
+/* ===== FOOTER (lampiran) ===== */
+.app-footer { grid-area: footer; }
+.item.row p { font-size: 11px; }
+.item.row a { color: var(--biru); font-weight: 700; margin-left: 6px; }
+
+/* ===== EFEK INTERAKTIF (dikendalikan JS) ===== */
+.card.sorot {
+  background: var(--sorot);
+  box-shadow: 0 0 0 3px #e0368a, 0 6px 18px rgba(224,54,138,.5);
+  animation: kedip 0.6s ease-in-out 3;
+}
+.card.sorot .item { background: #ffd6eb; }
+
+@keyframes kedip {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.025); }
+}
+
+#nama-mahasiswa, #nama-kelas {
+  transition: color .3s, text-shadow .3s;
+}
+#nama-mahasiswa, #nama-kelas { display: inline-block; }
+#nama-mahasiswa.berwarna,
+#nama-kelas.berwarna {
+  color: #fff2a8;
+  text-shadow: 0 0 10px rgba(255,242,168,.8);
+  animation: kedip 0.6s ease-in-out 3;
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 820px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "main" "content" "footer";
+  }
+  .app-nav { flex-direction: row; flex-wrap: wrap; padding: 10px; }
+  .nav-link { padding: 10px 14px; }
+  .app-content { grid-template-columns: 1fr; }
+  .app-header input { width: 180px; }
+}
